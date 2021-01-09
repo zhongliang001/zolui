@@ -1,5 +1,5 @@
 //var a = require( './lib/test.js' );
-import ZlItem from "./src/compnents/ZlItem"
+import ZlItem from "./src/compnents/ZlItem";
 import ZlField from "./src/compnents/ZlField";
 import ZlForm from "./src/compnents/ZlForm";
 import ZlFTable from "./src/compnents/ZlFTable";
@@ -7,6 +7,7 @@ import ZlInput from "./src/compnents/ZlInput";
 import ZlSelect from "./src/compnents/ZlSelect";
 import ZlTd from "./src/compnents/ZlTd";
 import ZlTextarea from "./src/compnents/ZlTextarea";
+import './src/css/base.css'
 const components = [
     ZlItem,
     ZlField,
