@@ -6,8 +6,14 @@
         <template v-else-if="field.type.toLowerCase() === 'textarea'">
             <zl-textarea :field="field" :reqData="reqData"/>
         </template>
-        <template v-else="field.type.toLowerCase() != 'select' &&field.type.toLowerCase() != 'textarea'">
+        <template v-else-if="field.type.toLowerCase() === 'text' || field.type.toLowerCase() === 'password'">
             <zl-input :field="field" :reqData="reqData"/>
+        </template>
+        <template v-else-if="field.type.toLowerCase() === 'radio'">
+            <zl-radio :field="field" :reqData="reqData"/>
+        </template>
+        <template v-else="field.type.toLowerCase() === 'checkbox'">
+            <zl-checkbox  :field="field" :reqData="reqData"/>
         </template>
     </div>
 </template>
@@ -16,11 +22,13 @@
     import ZlSelect from "./ZlSelect.vue";
     import ZlInput from "./ZlInput.vue";
     import ZlTextarea from "./ZlTextarea.vue";
+    import ZlRadio from "./ZlRadio.vue";
+    import ZlCheckbox from "./ZlCheckbox";
 
     export default {
         name: "ZlField",
         props:['field','reqData'],
-        components: {ZlTextarea, ZlSelect,ZlInput}
+        components: {ZlCheckbox, ZlRadio, ZlTextarea, ZlSelect,ZlInput,ZlRadio}
 
 
     }
