@@ -7,7 +7,10 @@ import ZlInput from "./src/compnents/ZlInput";
 import ZlSelect from "./src/compnents/ZlSelect";
 import ZlTd from "./src/compnents/ZlTd";
 import ZlTextarea from "./src/compnents/ZlTextarea";
+import ZlRadio from "./src/compnents/ZlRadio";
+import ZlCheckbox from "./src/compnents/ZlCheckbox";
 import './src/css/base.css'
+
 const components = [
     ZlItem,
     ZlField,
@@ -16,7 +19,9 @@ const components = [
     ZlInput,
     ZlSelect,
     ZlTd,
-    ZlTextarea
+    ZlTextarea,
+    ZlRadio,
+    ZlCheckbox
 ]
 
 const install = function(Vue) {
@@ -39,5 +44,7 @@ export default {
     ZlInput,
     ZlSelect,
     ZlTd,
-    ZlTextarea
+    ZlTextarea,
+    ZlRadio,
+    ZlCheckbox
 }

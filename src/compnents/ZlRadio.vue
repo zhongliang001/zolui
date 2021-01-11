@@ -1,8 +1,8 @@
 <template>
     <div>
-        <select :name="field.name"  @change="change" v-model="value">
-            <option v-for="(cname, ename) in options" :value="ename">{{cname}}</option>
-        </select>
+        <template v-for="(cname, ename) in options">
+            {{cname}}:<input :type="field.type"   :value="ename" :name="field.name"  v-model="value" @change="change">
+        </template>
         <div :class="{error:isActive}">
             {{msg}}
         </div>
@@ -11,7 +11,7 @@
 
 <script>
     export default {
-        name: "ZlSelect",
+        name: "ZlRadio",
         props:['field','reqData'],
         data: function () {
             return {
@@ -22,23 +22,22 @@
             }
         },
         mounted: function () {
-            Object.assign(this.options,{'':"请选择一个选项"}, this.dictData[this.field.dictName])
+            this.options =  this.dictData[this.field.dictName]
             this.reqData[this.field.name] = this.value
             this.$forceUpdate()
             this.value = ''
         },
-        methods:{
+        methods: {
             change: function () {
                 this.reqData[this.field.name] = this.value
-            },
-            validate: function () {
-                if((this.field.required === 'true' || this.field.required === 'required')&& !this.value){
-                    this.msg = this.field.fieldName + '不能为空'
-                    this.isActive = true
-                    return false
-                }
+            }
+        },
+        validate: function () {
+            if((this.field.required === 'true' || this.field.required === 'required')&& !this.reqData[this.field.name]){
+                this.msg = this.field.fieldName + '不能为空'
+                this.isActive = true
+                return false
             }
         }
-
     }
 </script>
