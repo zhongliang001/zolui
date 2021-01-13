@@ -10,6 +10,7 @@ import ZlTextarea from "./src/compnents/ZlTextarea";
 import ZlRadio from "./src/compnents/ZlRadio";
 import ZlCheckbox from "./src/compnents/ZlCheckbox";
 import './src/css/base.css'
+import ZlButton from "./src/compnents/ZlButton";
 
 const components = [
     ZlItem,
@@ -21,7 +22,8 @@ const components = [
     ZlTd,
     ZlTextarea,
     ZlRadio,
-    ZlCheckbox
+    ZlCheckbox,
+    ZlButton
 ]
 
 const install = function(Vue) {
@@ -46,5 +48,6 @@ export default {
     ZlTd,
     ZlTextarea,
     ZlRadio,
-    ZlCheckbox
+    ZlCheckbox,
+    ZlButton
 }
