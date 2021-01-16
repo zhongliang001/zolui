@@ -1,7 +1,7 @@
 <template>
     <div>
-        <template v-for="(cname, ename) in options">
-            {{cname}}:<input :type="field.type"   :value="ename" :name="field.name"  v-model="value" @change="change">
+        <template v-for="opt in options">
+            {{opt.cnName}}:<input :type="field.type"   :value="opt.enName" :name="field.name"  v-model="value" @change="change">
         </template>
         <div :class="{error:isActive}">
             {{msg}}
@@ -22,7 +22,12 @@
             }
         },
         mounted: function () {
-            this.options =  this.dictData[this.field.dictName]
+            let opts = []
+            opts[0] = {
+                cnName : '请选择一个选项',
+                enName : ''
+            }
+            this.options = opts.concat(this.dictData[this.field.dictName])
             this.reqData[this.field.name] = this.value
             this.$forceUpdate()
             this.value = ''
