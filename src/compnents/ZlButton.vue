@@ -1,11 +1,13 @@
 <template>
-    <input type="button" @click="click"/>
+    <div>
+        <input type="button"  @click="click" :value="name"/>
+    </div>
 </template>
 
 <script>
     export default {
         name: "ZlButton",
-        props:['type'],
+        props:['type','name'],
         data: function(){
             return {
                 formcomp: {}
@@ -26,6 +28,7 @@
             click : function () {
                 if (this.type === "submit") {
                    console.log(this.formcomp)
+                    this.$set(this.formcomp.reqData, 'username','1')
                 }
 
 
