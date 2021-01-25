@@ -3,6 +3,9 @@
         <select :name="field.name"  @change="change" v-model="value">
             <option v-for="opt in options" :value="opt.enName">{{opt.cnName}}</option>
         </select>
+        <template v-if="field.required === 'true'">
+            <span style="color: red; ">*</span>
+        </template>
         <div :class="{error:isActive}">
             {{msg}}
         </div>
@@ -35,12 +38,19 @@
         methods:{
             change: function () {
                 this.reqData[this.field.name] = this.value
+                if(this.validate){
+                    this.validate()
+                }
             },
             validate: function () {
                 if((this.field.required === 'true' || this.field.required === 'required')&& !this.value){
                     this.msg = this.field.fieldName + '不能为空'
                     this.isActive = true
                     return false
+                }else{
+                    this.msg = ''
+                    this.isActive = false
+                    return true
                 }
             }
         }

@@ -1,5 +1,5 @@
 <template>
-    <td>
+    <td :class="{hidden: isHidden}">
         <template v-if="field.type == null">
             {{field.fieldName}}
         </template>
@@ -18,7 +18,7 @@
         components:{ZlField},
         data: function () {
             return {
-
+                isHidden: false
             }
         }
 
