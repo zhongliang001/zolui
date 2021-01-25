@@ -1,4 +1,3 @@
-//var a = require( './lib/test.js' );
 import ZlItem from "./src/compnents/ZlItem";
 import ZlField from "./src/compnents/ZlField";
 import ZlForm from "./src/compnents/ZlForm";
@@ -11,6 +10,8 @@ import ZlRadio from "./src/compnents/ZlRadio";
 import ZlCheckbox from "./src/compnents/ZlCheckbox";
 import './src/css/base.css'
 import ZlButton from "./src/compnents/ZlButton";
+import zlaxios from "./lib/zlaxios";
+import common from "./lib/common";
 
 const components = [
     ZlItem,
@@ -31,6 +32,11 @@ const install = function(Vue) {
     components.forEach(component => {
         Vue.component(component.name, component);
     });
+
+    if(typeof(Vue)=="function"){
+        Vue.prototype.common=common
+        Vue.prototype.zlaxios = zlaxios
+    }
 }
 /* istanbul ignore if */
 if (typeof window !== 'undefined' && window.Vue) {

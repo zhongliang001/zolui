@@ -27,8 +27,10 @@
         methods:{
             click : function () {
                 if (this.type === "submit") {
-                   console.log(this.formcomp)
-                    this.$set(this.formcomp.reqData, 'username','1')
+                    // this.$set(this.formcomp.reqData, 'username','1')
+
+                }else if(this.type === 'reset'){
+                    this.formcomp.reset()
                 }
 
 

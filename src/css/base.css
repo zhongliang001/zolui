@@ -1,8 +1,12 @@
 .error {
-    background-color: red;
-    position:absolute;
+    color: red;
+
+    /*position:absolute;*/
 }
 
+.hidden {
+    display: none;
+}
 div.select{
     border:1px solid #000
 }

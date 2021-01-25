@@ -7,7 +7,7 @@
             <zl-textarea :field="field" :reqData="reqData"/>
         </template>
         <template v-else-if="field.type.toLowerCase() === 'text' || field.type.toLowerCase() === 'password'">
-            <zl-input :field="field" :reqData="reqData"/>
+            <zl-input :ref="field" :field="field" :reqData="reqData"/>
         </template>
         <template v-else-if="field.type.toLowerCase() === 'radio'">
             <zl-radio :field="field" :reqData="reqData"/>

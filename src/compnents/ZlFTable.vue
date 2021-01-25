@@ -1,7 +1,7 @@
 <template>
 	<table>
 		<tr v-for="i in rows">
-			<zl-td v-for="(field, index) in fields[i - 1]" :key="index" :field="field" :reqData="reqData"/>
+			<zl-td :ref="field.name" v-for="(field, index) in fields[i - 1]" :key="index" :field="field" :reqData="reqData"/>
 		</tr>
 		<slot></slot>
 	</table>
@@ -34,6 +34,7 @@
 					}
 					let field ={}
 					field.fieldName = this.$children[i].fieldName + ':'
+					field.name=this.$children[i].name
 					this.fields[j][n] = field
 					n++
 					let field2 ={}
@@ -43,6 +44,7 @@
 						i ++
 						break
 					}
+
 				}
 			}
 			this.$forceUpdate()
