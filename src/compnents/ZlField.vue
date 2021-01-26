@@ -12,8 +12,11 @@
         <template v-else-if="field.type.toLowerCase() === 'radio'">
             <zl-radio :field="field" :reqData="reqData"/>
         </template>
-        <template v-else="field.type.toLowerCase() === 'checkbox'">
+        <template v-else-if="field.type.toLowerCase() === 'checkbox'">
             <zl-checkbox  :field="field" :reqData="reqData"/>
+        </template>
+        <template v-else="field.type.toLowerCase() === 'date'">
+            <zl-date  :field="field" :reqData="reqData"/>
         </template>
     </div>
 </template>
@@ -24,11 +27,12 @@
     import ZlTextarea from "./ZlTextarea.vue";
     import ZlRadio from "./ZlRadio.vue";
     import ZlCheckbox from "./ZlCheckbox";
+    import ZlDate from "./ZlDate";
 
     export default {
         name: "ZlField",
         props:['field','reqData'],
-        components: {ZlCheckbox, ZlRadio, ZlTextarea, ZlSelect,ZlInput,ZlRadio}
+        components: {ZlCheckbox, ZlRadio, ZlTextarea, ZlSelect,ZlInput,ZlRadio,ZlDate}
 
 
     }

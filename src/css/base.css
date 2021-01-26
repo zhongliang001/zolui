@@ -50,3 +50,15 @@ span.selIcon{
     height: 21px;
 }
 
+.form-date table,.form-date th,.form-date td{
+    border: 1px solid blue;
+}
+
+.form-date .sel div {
+    float: left;
+}
+.form-date .form-date-sel-table{
+    position:absolute;
+    /*display: none;*/
+}
+
