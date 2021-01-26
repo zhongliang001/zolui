@@ -1,7 +1,5 @@
 <template>
-    <div>
         <input type="button"  @click="click" :value="name"/>
-    </div>
 </template>
 
 <script>
