@@ -15,6 +15,7 @@ import zlaxios from "./lib/zlaxios";
 import common from "./lib/common";
 import './lib/DateUtil'
 import ZlMenu from "./src/compnents/menu/ZlMenu";
+import ZlMenuItem from "./src/compnents/menu/ZlMenuItem";
 
 const components = [
     ZlItem,
@@ -29,7 +30,8 @@ const components = [
     ZlCheckbox,
     ZlButton,
     ZlDate,
-    ZlMenu
+    ZlMenu,
+    ZlMenuItem
 ]
 
 const install = function(Vue) {
@@ -62,5 +64,6 @@ export default {
     ZlCheckbox,
     ZlButton,
     ZlDate,
-    ZlMenu
+    ZlMenu,
+    ZlMenuItem
 }

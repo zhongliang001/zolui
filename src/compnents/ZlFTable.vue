@@ -35,6 +35,7 @@
 					let field ={}
 					field.fieldName = this.$children[i].fieldName + ':'
 					field.name=this.$children[i].name
+					field.hidden = this.$children[i].hidden
 					this.fields[j][n] = field
 					n++
 					let field2 ={}
