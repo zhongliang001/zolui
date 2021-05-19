@@ -18,8 +18,11 @@
         components:{ZlField},
         data: function () {
             return {
-                isHidden: false
+                isHidden: true
             }
+        },
+        mounted: function() {
+            this.isHidden = this.field.hidden
         }
 
     }

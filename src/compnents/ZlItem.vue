@@ -26,6 +26,9 @@
             },
             dictName:{
 			    type: String
+            },
+            hidden:{
+			    type: String
             }
 
 		}
