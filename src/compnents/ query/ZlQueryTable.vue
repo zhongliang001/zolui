@@ -5,18 +5,18 @@
         </zl-form>
         <div style="align-content: center; margin:0 auto;width:300px; ">
             <zl-button type="submit"  name="查询" @click.native="onclick"/>
-            <zl-button type="reset" name="重置"/>
+            <zl-button type="reset" name="重置"  @click.native="reset"/>
         </div>
         <slot/>
         <table>
             <tr>
-                <td v-for="title in titles"> {{title}}</td>
+                <th v-for="title in titles"> {{title.cnName}}</th>
             </tr>
-            <tr v-for="line in data">
-                <td v-for="text in line">{{text}}</td>
+            <tr  v-for="(line, index) in data" @click="sel(line,index)" :class="[index === selNum? selected : '']">
+                <td v-for="title in titles">{{line[title.name]}}</td>
             </tr>
         </table>
-        <zl-page :total="total" :page-num="pageNum" :page-size="pageSize" @changePage="changePage"></zl-page>
+        <zl-page :total="total" :page-num="pageNum" :page-size="pageSize" @changePage="changePage"/>
     </div>
 
 </template>
@@ -35,7 +35,11 @@
           return {
               data: [],
               pageNum: 1,
-              pageSize: 5
+              pageSize: 5,
+              selNum: -1,
+              selData: {},
+              selected: 'selected',
+              total: 0
           }
         },
         methods:{
@@ -64,13 +68,38 @@
                 })
             },
             changePage: function(num){
+                this.selNum = -1
+                this.selData = {}
                 this.pageNum = num
                 this.onclick()
             },
+            sel: function (line, index) {
+                this.selNum = index
+                this.selData  = line
+            },
+            reset: function () {
+                let _this = this
+                let form = this.common.getForm(this,_this._props.re)
+                form.reset()
+            }
         }
     }
 </script>
 
 <style scoped>
+    table th {
+        width: 200px; min-height: 25px; line-height: 25px; text-align: center; border: 1px solid #000000; background-color: #2C3E50;
+    }
 
+    table td {
+        width: 200px; min-height: 25px; line-height: 25px; text-align: center; border: 1px solid #000000;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    .selected{
+        background-color: red;
+    }
 </style>

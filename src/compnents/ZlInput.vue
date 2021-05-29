@@ -25,14 +25,16 @@
             this.value = this.field.defaultValue;
             this.reqData[this.field.name] = this.value
         },
-        watch:{
-            reqData: {
-                handler: (data) => {
-                    this.reqData = data
-                    this.value = data[this.field.name]
+        created: function(){
+            this.$watch(
+                // 第一个函数就是处理你要监听的属性
+                function () {
+                    return this.reqData
                 },
-                deep: true
-            }
+                function (newVal) {
+                    this.value = newVal[this.field.name]
+                }
+            )
         },
         methods:{
             inputData: function () {
