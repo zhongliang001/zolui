@@ -10,7 +10,7 @@
 <script>
 	import ZlTd from "./ZlTd.vue";
 	export default{
-		name: 'ZlTable',
+		name: 'ZlFTable',
 		props:['column','reqData'],
 		components: {ZlTd},
 		data: function(){
