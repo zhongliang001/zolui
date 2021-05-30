@@ -16,7 +16,7 @@
                 <td v-for="title in titles">{{line[title.name]}}</td>
             </tr>
         </table>
-        <zl-page :total="total" :page-num="pageNum" :page-size="pageSize" @changePage="changePage"/>
+        <zl-pagination :total="total" :page-num="pageNum" :page-size="pageSize" @changePage="changePage"/>
     </div>
 
 </template>
@@ -26,11 +26,11 @@
     import ZlForm from "../ZlForm";
     import ZlButton from "../ZlButton";
     import ZlItem from "../ZlItem";
-    import ZlPage from "./ZlPage";
+    import ZlPagination from "./ZlPagination";
     export default {
         name: "ZlQueryTable",
         props:['column','titles','url','re','method','fileds'],
-        components: {ZlPage, ZlItem, ZlButton, ZlForm},
+        components: {ZlPagination, ZlItem, ZlButton, ZlForm},
         data: function(){
           return {
               data: [],

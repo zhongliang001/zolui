@@ -17,7 +17,9 @@ import './lib/DateUtil'
 import ZlMenu from "./src/compnents/menu/ZlMenu";
 import ZlMenuItem from "./src/compnents/menu/ZlMenuItem";
 import ZlQueryTable from "./src/compnents/ query/ZlQueryTable";
-import ZlPage from "./src/compnents/ query/ZlPage";
+import ZlPagination from "./src/compnents/ query/ZlPagination";
+import ZlTree from "./src/compnents/tree/ZlTree";
+import ZlPage from "./src/compnents/ZlPage";
 
 const components = [
     ZlItem,
@@ -35,6 +37,8 @@ const components = [
     ZlMenu,
     ZlMenuItem,
     ZlQueryTable,
+    ZlPagination,
+    ZlTree,
     ZlPage
 ]
 
@@ -71,5 +75,7 @@ export default {
     ZlMenu,
     ZlMenuItem,
     ZlQueryTable,
+    ZlPagination,
+    ZlTree,
     ZlPage
 }

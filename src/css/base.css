@@ -62,4 +62,6 @@ span.selIcon{
     /*display: none;*/
 }
 
-
+.hidden {
+    display: none;
+}

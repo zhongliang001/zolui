@@ -17,7 +17,7 @@
 
 <script>
 export default{
-	name: 'ZlPage',
+	name: 'ZlPagination',
 	props:['total','pageNum','pageSize'],
 	data: function(){
 		return {
