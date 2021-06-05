@@ -1,7 +1,29 @@
+*{
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    /*border: 1px solid grey;*/
+    vertical-align:middle;
+    display: inline-block;
+    outline:none;
+}
+input:-webkit-autofill {
+    /*强制输入框背景颜色透明*/
+    box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+input[type="button"]{
+    width: 80px;
+    height: 35px;
+    border-radius: 5px;
+    background-color: #99CCCC;
+}
 .error {
     color: red;
-
-    /*position:absolute;*/
+    position:absolute;
 }
 
 .hidden {
@@ -65,3 +87,44 @@ span.selIcon{
 .hidden {
     display: none;
 }
+
+form span.form-input{
+    border: 1px solid grey;
+    border-radius: 5px;
+    display: inline-block;
+    width: 190px;
+}
+
+form .user::before{
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url("../images/user.png");
+    background-size: contain;
+    vertical-align: middle;
+}
+
+form .password::before{
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url("../images/lock.png");
+    background-size: contain;
+    vertical-align: middle;
+}
+
+form table{
+    margin:0 auto;
+}
+
+form table tr td:nth-child(2n+1){
+    width: 100px;
+    text-align: right;
+}
+
+form table tr td:nth-child(2n){
+    width: 250px;
+}
+

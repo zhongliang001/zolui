@@ -9,7 +9,7 @@
 		<input type="text" :value="totalPage" readonly="readonly"/>
 		<input type="button" value="页" />
 		<input type="button" value="前往">
-		<input type="text" :value="pageNum" hidden="true"/>
+		<input type="text" :value="pageNum" style="display: none"/>
 		<input type="text" v-model="page" @blur="toPage" />
 		<input type="button" value="页" />
 	</div>
