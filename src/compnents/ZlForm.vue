@@ -1,8 +1,8 @@
 <template>
 	<div>
-		<form :action="url" :method="method" @reset="">
+		<form :action="url" :method="method">
 			<zl-f-table ref="fTable" v-if="forceUpdate" :column="column" :reqData="reqData">
-				<slot></slot>
+				<slot/>
 			</zl-f-table>
 		</form>
 
@@ -28,6 +28,10 @@
 			setData: function (name,val) {
 				this.$vnode.elm.children[0][name].value = val
 				this.$set(this.reqData, name,val)
+			},
+			setReqData: function(data){
+				this.reqData= data
+				// this.$set(this.reqData);
 			},
 			hiddenField: function(name){
 				this.$refs['fTable'].$refs[name][0].isHidden= true

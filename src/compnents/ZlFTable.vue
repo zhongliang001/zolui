@@ -10,7 +10,7 @@
 <script>
 	import ZlTd from "./ZlTd.vue";
 	export default{
-		name: 'ZlTable',
+		name: 'ZlFTable',
 		props:['column','reqData'],
 		components: {ZlTd},
 		data: function(){
@@ -36,6 +36,7 @@
 					field.fieldName = this.$children[i].fieldName + ':'
 					field.name=this.$children[i].name
 					field.hidden = this.$children[i].hidden
+					field.cstclass = this.$children[i].cstclass
 					this.fields[j][n] = field
 					n++
 					let field2 ={}

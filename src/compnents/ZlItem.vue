@@ -29,6 +29,9 @@
             },
             hidden:{
 			    type: String
+            },
+            cstclass:{
+			    type: String
             }
 
 		}

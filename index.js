@@ -16,6 +16,11 @@ import common from "./lib/common";
 import './lib/DateUtil'
 import ZlMenu from "./src/compnents/menu/ZlMenu";
 import ZlMenuItem from "./src/compnents/menu/ZlMenuItem";
+import ZlQueryTable from "./src/compnents/ query/ZlQueryTable";
+import ZlPagination from "./src/compnents/ query/ZlPagination";
+import ZlTree from "./src/compnents/tree/ZlTree";
+import ZlBranch from "./src/compnents/tree/ZlBranch";
+import ZlPage from "./src/compnents/ZlPage";
 
 const components = [
     ZlItem,
@@ -31,7 +36,12 @@ const components = [
     ZlButton,
     ZlDate,
     ZlMenu,
-    ZlMenuItem
+    ZlMenuItem,
+    ZlQueryTable,
+    ZlPagination,
+    ZlTree,
+    ZlBranch,
+    ZlPage
 ]
 
 const install = function(Vue) {
@@ -65,5 +75,10 @@ export default {
     ZlButton,
     ZlDate,
     ZlMenu,
-    ZlMenuItem
+    ZlMenuItem,
+    ZlQueryTable,
+    ZlPagination,
+    ZlTree,
+    ZlBranch,
+    ZlPage
 }

@@ -1,10 +1,12 @@
 <template>
     <div>
-        <input  :type="field.type" v-model="value" :name="field.name" @input="inputData" :reqData="reqData" :hidden="field.hidden">
+        <span :class="field.cstclass" class="form-input">
+            <input  :type="field.type" v-model="value" :name="field.name" @input="inputData" :reqData="reqData" :hidden="field.hidden"/>
+        </span>
         <template v-if="field.required === 'true'">
            <span style="color: red; ">*</span>
         </template>
-        <span :class="{error:isActive}">
+        <span :class="[isActive? error: hidden]">
             {{msg}}
         </span>
     </div>
@@ -17,22 +19,26 @@
         data: function () {
             return {
                 msg: '',
-                isActive: true,
-                value:''
+                isActive: false,
+                value:'',
+                hidden: 'hidden',
+                error: 'error'
             }
         },
         mounted: function() {
             this.value = this.field.defaultValue;
             this.reqData[this.field.name] = this.value
         },
-        watch:{
-            reqData: {
-                handler: (data) => {
-                    this.reqData = data
-                    this.value = data[this.field.name]
+        created: function(){
+            this.$watch(
+                // 第一个函数就是处理你要监听的属性
+                function () {
+                    return this.reqData
                 },
-                deep: true
-            }
+                function (newVal) {
+                    this.value = newVal[this.field.name]
+                }
+            )
         },
         methods:{
             inputData: function () {

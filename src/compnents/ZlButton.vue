@@ -28,7 +28,7 @@
                     // this.$set(this.formcomp.reqData, 'username','1')
 
                 }else if(this.type === 'reset'){
-                    this.formcomp.reset()
+                    // this.formcomp.reset()
                 }
 
 
