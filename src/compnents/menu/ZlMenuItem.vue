@@ -66,6 +66,7 @@
                 this.menuStyle.border = 'solid 1px transparent'
             },
             click: function() {
+
                 if(this.$children){
                     if(this.active){
                         this.active = false

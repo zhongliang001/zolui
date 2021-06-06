@@ -4,7 +4,7 @@
             <zl-item v-for="filed in fileds"  :type="filed.type" :field-name="filed.cnName" :name="filed.name" />
         </zl-form>
         <div style="align-content: center; margin:0 auto;width:300px; ">
-            <zl-button type="submit"  name="查询" @click.native="onclick"/>
+            <zl-button type="submit"  name="查询" @click.native="query(true)"/>
             <zl-button type="reset" name="重置"  @click.native="reset"/>
         </div>
         <slot/>
@@ -43,9 +43,12 @@
           }
         },
         methods:{
-            onclick: function () {
+            query: function (flag) {
                 let _this = this
-                let form = _this.common.getForm(this,_this._props.re)
+                if(flag){
+                    _this.pageNum = 1
+                }
+                let form = _this.common.getComponent(this,_this._props.re)
                 let reqData = form.reqData
                 this.zlaxios.request({
                     url: _this.url,
@@ -71,7 +74,7 @@
                 this.selNum = -1
                 this.selData = {}
                 this.pageNum = num
-                this.onclick()
+                this.query()
             },
             sel: function (line, index) {
                 this.selNum = index
@@ -79,7 +82,7 @@
             },
             reset: function () {
                 let _this = this
-                let form = this.common.getForm(this,_this._props.re)
+                let form = this.common.getComponent(this,_this._props.re)
                 form.reset()
             }
         }

@@ -1,13 +1,15 @@
 <template>
-    <div>
-        <p>登录</p>
-        <p>注册</p>
+    <div class="tree">
+        <zl-branch :branch="tree" v-bind:level="0" :sel="sel"/>
     </div>
 </template>
 
 <script>
+    import ZlBranch from "./ZlBranch";
     export default {
-        name: "ZlTree"
+        name: "ZlTree",
+        props:['tree','sel'],
+        components:['ZlBranch']
     }
 </script>
 
