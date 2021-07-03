@@ -1,6 +1,6 @@
 <template>
     <td :class="{hidden: isHidden}">
-        <template v-if="field.type == null">
+       <template v-if="field.index%2 === 0">
             {{field.fieldName}}
         </template>
         <template v-else>
