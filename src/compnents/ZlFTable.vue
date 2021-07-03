@@ -1,5 +1,5 @@
 <template>
-	<table>
+	<table   v-bind="$attrs" v-on="$listeners">
 		<tr v-for="i in rows">
 			<zl-td :ref="field.name" v-for="(field, index) in fields[i - 1]" :key="index" :field="field" :reqData="reqData"/>
 		</tr>
@@ -19,6 +19,14 @@
 				fields:[]
 			}
 		},
+    watch:{
+      fields:{
+        handler: function (o, b){
+          this.fields = o
+        },
+        deep: true
+      }
+    },
 		mounted: function(){
 			let children = this.$children
 			if(!children){
@@ -28,29 +36,45 @@
 			let i = 0
 			for(let j = 0; j < this.rows; j ++){
 				let n= 0
+        let line = []
 				for(; i< children.length; i++, n++){
-					if(this.fields[j] === undefined){
-						this.fields[j] =[]
-					}
-					let field ={}
+					let field =  {}
+          field.index = n
 					field.fieldName = this.$children[i].fieldName + ':'
 					field.name=this.$children[i].name
 					field.hidden = this.$children[i].hidden
 					field.cstclass = this.$children[i].cstclass
-					this.fields[j][n] = field
-					n++
+          field.readOnly = this.$children[i].readOnly
+          line.push(field)
+          n++
 					let field2 ={}
-					field2 = this.$children[i]
-					this.fields[j][n] = field2
+					field2 =  JSON.parse(JSON.stringify(this.$children[i].$props))
+          field2.index = n
+          line.push(field2)
 					if((i+1) % this.column === 0){
 						i ++
+            this.fields.push(line)
 						break
 					}
 
 				}
 			}
 			this.$forceUpdate()
-		}
+		},
+    methods:{
+    changeReadOnly: function (name, readOnly) {
+      let _this  = this
+      this.fields.forEach(field=>{
+        field.forEach(f=>{
+          if (f.name === name) {
+              console.log(f)
+            f.readOnly = readOnly
+          }
+        })
+      })
+      this.$forceUpdate()
+    }
+    }
 	}
 </script>
 

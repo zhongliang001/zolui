@@ -1,5 +1,5 @@
 <template>
-    <div >
+    <div>
         <template v-if="field.type.toLowerCase() === 'select'">
             <zl-select  :field="field" :reqData="reqData"/>
         </template>
@@ -15,7 +15,7 @@
         <template v-else-if="field.type.toLowerCase() === 'checkbox'">
             <zl-checkbox  :field="field" :reqData="reqData"/>
         </template>
-        <template v-else="field.type.toLowerCase() === 'date'">
+        <template v-else-if="field.type.toLowerCase() === 'date'">
             <zl-date  :field="field" :reqData="reqData"/>
         </template>
     </div>
@@ -33,8 +33,6 @@
         name: "ZlField",
         props:['field','reqData'],
         components: {ZlCheckbox, ZlRadio, ZlTextarea, ZlSelect,ZlInput,ZlRadio,ZlDate}
-
-
     }
 </script>
 
