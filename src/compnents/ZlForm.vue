@@ -1,6 +1,6 @@
 <template>
-  <div v-bind="$attrs" v-on="$listeners">
-    <form :class="[isShow? '' : 'hidden']" :action="url" :method="method">
+  <div class="slider-vertical" v-bind="$attrs" v-on="$listeners">
+    <form ref="form" :class="[isShow? '' : 'hidden', customClass]" class="row g-3 needs-validation" :action="url" :method="method">
       <zl-f-table ref="fTable" v-if="forceUpdate" :column="column" :reqData="reqData">
         <slot/>
       </zl-f-table>
@@ -11,9 +11,12 @@
 
 <script>
 import ZlFTable from './ZlFTable.vue'
-
+import Store from "../../lib/store";
+import zlaxios from "../../lib/zlaxios";
 export default {
   name: 'ZlForm',
+  Store,
+  zlaxios,
   props: {
     'column': {
       type: Number,
@@ -23,10 +26,12 @@ export default {
     }, 'method': {
       type: String
     }, 'validate': {
-      type: String
+      type: Function
     }, 'isShow': {
       type: Boolean,
       default: true
+    }, 'customClass':{
+      type: String
     }
   },
   components: {ZlFTable},
@@ -58,6 +63,10 @@ export default {
       this.$refs['fTable'].$refs[name][1].isHidden = false
     },
     checkAll: function () {
+      // this.$store.commit('increment')
+      // console.log(this.$store.state.count)
+      // debugger
+      this.$refs["form"].classList.add('was-validated')
       let result = true;
       let children = this.$children
       if (children) {
@@ -68,8 +77,11 @@ export default {
         if (typeof (this.validate) === 'function') {
           result = this.validate()
         }
+
+        this.$refs["form"].checkValidity()
         return result
       } else {
+        this.$refs["form"].checkValidity()
         return result
       }
     },

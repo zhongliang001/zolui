@@ -34,6 +34,9 @@ export default {
       type: String
     },readOnly:{
       type: String
+    },
+    rules:{
+      type: Object
     }
 
   }

@@ -3,12 +3,12 @@
     <zl-form :isShow="isShow" ref="qTable" :column="column" :url="url" :method="method">
       <zl-item v-for="filed in fileds" :key="filed.fieldName" :type="filed.type" :field-name="filed.cnName" :name="filed.name"/>
     </zl-form>
-    <div :class="[isShow? '' : 'hidden']" style="align-content: center; margin:0 auto;width:300px; ">
+    <div :class="[isShow? '' : 'hidden']"  class="d-grid gap-2 d-md-flex justify-content-md-center" style="align-content: center; margin:0 auto;width:100%; ">
       <zl-button type="submit" name="查询" @click.native="query(true)"/>
       <zl-button type="reset" name="重置" @click.native="reset"/>
     </div>
     <slot/>
-    <table>
+    <table class="table table-allbordered">
       <tr>
         <th v-for="title in titles"> {{ title.cnName }}</th>
       </tr>
@@ -80,6 +80,9 @@ export default {
           _this.pageNum = response.pageNum
           _this.pageSize = response.pageSize
           _this.total = response.total
+          _this.selData ={}
+          _this.selNum = -1
+
           // _this.$router.push({name:"Welcome"})
         },
         error: function (error) {
@@ -94,16 +97,15 @@ export default {
       this.query()
     },
     sel: function (line, index) {
+      debugger
       this.selNum = index
       this.selData = line
     },
     reset: function () {
-      let _this = this
       let form = this.common.getComponent(this, 'qTable')
       form.reset()
     },
     setReqData: function (data){
-      let _this = this
       let form = this.common.getComponent(this, 'qTable')
       form.reqData = data
     }
@@ -112,28 +114,5 @@ export default {
 </script>
 
 <style scoped>
-table th {
-  width: 200px;
-  min-height: 25px;
-  line-height: 25px;
-  text-align: center;
-  border: 1px solid #000000;
-  background-color: #2C3E50;
-}
 
-table td {
-  width: 200px;
-  min-height: 25px;
-  line-height: 25px;
-  text-align: center;
-  border: 1px solid #000000;
-}
-
-table {
-  border-collapse: collapse;
-}
-
-.selected {
-  background-color: red;
-}
 </style>

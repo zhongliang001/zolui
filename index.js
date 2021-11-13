@@ -10,6 +10,7 @@ import ZlRadio from "./src/compnents/ZlRadio";
 import ZlCheckbox from "./src/compnents/ZlCheckbox";
 import ZlDate from "./src/compnents/ZlDate";
 import './src/css/base.css'
+import './src/css/sidebars.css'
 import ZlButton from "./src/compnents/ZlButton";
 import zlaxios from "./lib/zlaxios";
 import common from "./lib/common";
@@ -21,6 +22,17 @@ import ZlPagination from "./src/compnents/ query/ZlPagination";
 import ZlTree from "./src/compnents/tree/ZlTree";
 import ZlBranch from "./src/compnents/tree/ZlBranch";
 import ZlPage from "./src/compnents/ZlPage";
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.esm.min.js'
+import 'bootstrap/dist/js/bootstrap'
+import "bootstrap/scss/bootstrap.scss"
+import '@popperjs/core/dist/umd/popper'
+import validator from './lib/validator'
+import 'bootstrap/scss/bootstrap-reboot.scss'
+import './src/scss/zlform.scss'
+
+
 
 const components = [
     ZlItem,
@@ -53,6 +65,7 @@ const install = function(Vue) {
     if(typeof(Vue)=="function"){
         Vue.prototype.common=common
         Vue.prototype.zlaxios = zlaxios
+        Vue.prototype.validator = validator
     }
 }
 /* istanbul ignore if */

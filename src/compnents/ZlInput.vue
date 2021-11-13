@@ -1,19 +1,23 @@
 <template>
-  <div v-model="field">
-        <span :class="field.cstclass" class="form-input" >
-            <input :type="field.type" v-model="value" :name="field.name" @input="inputData" :reqData="reqData"
-                   :hidden="field.hidden" :readOnly="field.readOnly"/>
-        </span>
-    <template v-if="field.required === 'true'">
-      <span style="color: red; ">*</span>
-    </template>
-    <span :class="[isActive? error: hidden]">
-            {{ msg }}
-        </span>
+  <div class="form-input" v-model="field">
+            <input ref="input" class="form-control" :type="field.type" v-model="value" :name="field.name"
+                   @input="inputData" :reqData="reqData"
+                   :visibility="field.hidden" :readOnly="field.readOnly"/>
+          <div class="invalid-feedback">
+        {{ msg }}
+      </div>
+
+    <!--    <template v-if="field.required === 'true'">
+          <span style="color: red; ">*</span>
+        </template>-->
+    <!--    <span :class="[isActive? error: hidden]">
+                {{ msg }}
+            </span>-->
   </div>
 </template>
 
 <script>
+
 export default {
   name: "ZlInput",
   props: ['field', 'reqData'],
@@ -40,6 +44,7 @@ export default {
           this.value = newVal[this.field.name]
         }
     )
+
   },
   methods: {
     inputData: function () {
@@ -61,15 +66,38 @@ export default {
       }
     },
     validate: function () {
-      if ((this.field.required === 'true' || this.field.required === 'required') && !this.value) {
-        this.msg = this.field.fieldName + '不能为空'
-        this.isActive = true
-        return false
-      } else if ((this.field.required === 'true' || this.field.required === 'required') && this.value) {
-        this.msg = ''
-        this.isActive = false
-        return true
+      let status = true
+      if (this.field.rules) {
+        try {
+          this.field.rules.ruleName.forEach((rule) => {
+            let _this = this
+            let result = _this.validator[rule](_this);
+            if (this.$refs["input"]) {
+              if (!result.status) {
+                status = false
+                this.$refs["input"].setCustomValidity(true)
+              } else {
+                this.$refs["input"].setCustomValidity('')
+              }
+            }
+          })
+        } catch (e) {
+          console.log(this.field.name + "在方法validate中出错， 错误原因： " + e)
+        }
+
       }
+      return status
+
+
+      // if ((this.field.required === 'true' || this.field.required === 'required') && !this.value) {
+      //   this.msg = this.field.fieldName + '不能为空'
+      //   this.isActive = true
+      //   return false
+      // } else if ((this.field.required === 'true' || this.field.required === 'required') && this.value) {
+      //   this.msg = ''
+      //   this.isActive = false
+      //   return true
+      // }
     }
   }
 }

@@ -1,161 +1,187 @@
 *{
     border: 0;
-    margin: 0;
+    margin: 0 !important;
     padding: 0;
 }
 
-input {
-    /*border: 1px solid grey;*/
-    vertical-align:middle;
-    display: inline-block;
-    outline:none;
-}
-input:-webkit-autofill {
-    /*强制输入框背景颜色透明*/
-    box-shadow: 0 0 0px 1000px white inset !important;
+div {
+    width: 100%;
 }
 
-input[type="button"]{
-    width: 80px;
-    height: 35px;
-    border-radius: 5px;
-    background-color: #99CCCC;
-}
-.error {
-    color: red;
-    position:absolute;
-}
+/*input {*/
+/*    !*border: 1px solid grey;*!*/
+/*    vertical-align:middle;*/
+/*    display: inline-block;*/
+/*    outline:none;*/
+/*}*/
+/*input:-webkit-autofill {*/
+/*    !*强制输入框背景颜色透明*!*/
+/*    box-shadow: 0 0 0px 1000px white inset !important;*/
+/*}*/
 
-.hidden {
-    display: none;
-}
-div.select{
-    border:1px solid #000
-}
-div.option{
-    position: absolute;
-    -webkit-transition: .5s ease-in-out;
-    -moz-transition: .5s ease-in-out;
-    display: none;
-
-}
-div.option ul {
-    padding-inline-start: 0px;
-    background-color: white;
-    margin-block-start: 0px;
-    margin-block-end: 0px;
-}
-div.option li{
-    width:152px;
-    list-style-type: none;
-    padding-right:20px;
-
-}
-div.option li:hover{
-    background-color: grey;
-}
-span {
-    vertical-align: middle;
-}
-span.select {
-    display:-moz-inline-box;
-    display:inline-block;
-    width:150px;
-    height: 21px;
-}
-span.selIcon{
-    /*background-image: url("../../icons/select.png");*/
-    background-size:21px 21px;
-    display:-moz-inline-box;
-    display:inline-block;
-    width:21px;
-    height: 21px;
-}
-
-.form-date table,.form-date th,.form-date td{
-    border: 1px solid blue;
-}
-
-.form-date .sel div {
-    float: left;
-}
-.form-date .form-date-sel-table{
-    position:absolute;
-    /*display: none;*/
-}
+/*!*input[type="button"]{*!*/
+/*!*    width: 80px;*!*/
+/*!*    height: 35px;*!*/
+/*!*    border-radius: 5px;*!*/
+/*!*    background-color: #99CCCC;*!*/
+/*!*}*!*/
+/*.error {*/
+/*    color: red;*/
+/*    position:absolute;*/
+/*}*/
 
 .hidden {
     display: none;
 }
+/*div.select{*/
+/*    border:1px solid #000*/
+/*}*/
+/*div.option{*/
+/*    position: absolute;*/
+/*    -webkit-transition: .5s ease-in-out;*/
+/*    -moz-transition: .5s ease-in-out;*/
+/*    display: none;*/
 
-form span.form-input{
-    border: 1px solid grey;
-    border-radius: 5px;
+/*}*/
+/*div.option ul {*/
+/*    padding-inline-start: 0px;*/
+/*    background-color: white;*/
+/*    margin-block-start: 0px;*/
+/*    margin-block-end: 0px;*/
+/*}*/
+/*div.option li{*/
+/*    width:152px;*/
+/*    list-style-type: none;*/
+/*    padding-right:20px;*/
+
+/*}*/
+/*div.option li:hover{*/
+/*    background-color: grey;*/
+/*}*/
+/*span {*/
+/*    vertical-align: middle;*/
+/*}*/
+/*span.select {*/
+/*    display:-moz-inline-box;*/
+/*    display:inline-block;*/
+/*    width:150px;*/
+/*    height: 21px;*/
+/*}*/
+/*span.selIcon{*/
+/*    !*background-image: url("../../icons/select.png");*!*/
+/*    background-size:21px 21px;*/
+/*    display:-moz-inline-box;*/
+/*    display:inline-block;*/
+/*    width:21px;*/
+/*    height: 21px;*/
+/*}*/
+
+/*.form-date table,.form-date th,.form-date td{*/
+/*    border: 1px solid blue;*/
+/*}*/
+
+/*!*.form-date .sel div {*!*/
+/*!*    float: left;*!*/
+/*!*}*!*/
+/*.form-date .form-date-sel-table{*/
+/*    position:absolute;*/
+/*    !*display: none;*!*/
+/*}*/
+
+/*.hidden {*/
+/*    display: none;*/
+/*}*/
+
+/*form span.form-input{*/
+/*    border: 1px solid grey;*/
+/*    border-radius: 5px;*/
+/*    display: inline-block;*/
+/*    width: 190px;*/
+/*}*/
+
+/*form .user::before{*/
+/*    content: "";*/
+/*    display: inline-block;*/
+/*    width: 20px;*/
+/*    height: 20px;*/
+/*    background: url("../images/user.png");*/
+/*    background-size: contain;*/
+/*    vertical-align: middle;*/
+/*}*/
+
+/*form .password::before{*/
+/*    content: "";*/
+/*    display: inline-block;*/
+/*    width: 20px;*/
+/*    height: 20px;*/
+/*    background: url("../images/lock.png");*/
+/*    background-size: contain;*/
+/*    vertical-align: middle;*/
+/*}*/
+
+/*form table{*/
+/*    margin:0 auto;*/
+/*}*/
+
+
+/*form table tr td:nth-child(2n+1){*/
+/*    white-space:nowrap;*/
+/*    text-align: right;*/
+/*}*/
+
+/*form table tr td:nth-child(2n){*/
+/*    white-space:nowrap;*/
+/*}*/
+
+/*.tree a.close::before{*/
+/*    content: "";*/
+/*    display: inline-block;*/
+/*    width: 20px;*/
+/*    height: 20px;*/
+/*    background: url("../images/folder-close.png");*/
+/*    background-size: contain;*/
+/*    vertical-align: middle;*/
+/*}*/
+
+/*.tree a.open::before{*/
+/*    content: "";*/
+/*    display: inline-block;*/
+/*    width: 20px;*/
+/*    height: 20px;*/
+/*    background: url("../images/folder-filling.png");*/
+/*    background-size: contain;*/
+/*    vertical-align: middle;*/
+/*}*/
+
+/*.tree a:hover{*/
+/*    !*background-color: #99CCCC;;*!*/
+/*}*/
+
+/*.tree .branch div.close{*/
+/*    display: none;*/
+/*}*/
+
+/*.tree .branch div.open{*/
+/*    display: inline-block;*/
+/*}*/
+
+p {
+    font-size: 14px;
+    color: #ffffff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     display: inline-block;
-    width: 190px;
+    margin: 0 auto;
 }
-
-form .user::before{
-    content: "";
+a {
     display: inline-block;
-    width: 20px;
-    height: 20px;
-    background: url("../images/user.png");
-    background-size: contain;
-    vertical-align: middle;
+    width: 100%;
+}
+li button {
+    font-size: 14px !important;
+    color: #ffffff !important;
+    font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 
-form .password::before{
-    content: "";
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background: url("../images/lock.png");
-    background-size: contain;
-    vertical-align: middle;
-}
-
-form table{
-    margin:0 auto;
-}
-
-form table tr td:nth-child(2n+1){
-    width: 100px;
-    text-align: right;
-}
-
-form table tr td:nth-child(2n){
-    width: 250px;
-}
-
-.tree a.close::before{
-    content: "";
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background: url("../images/folder-close.png");
-    background-size: contain;
-    vertical-align: middle;
-}
-
-.tree a.open::before{
-    content: "";
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background: url("../images/folder-filling.png");
-    background-size: contain;
-    vertical-align: middle;
-}
-
-.tree a:hover{
-    background-color: #99CCCC;;
-}
-
-.tree .branch div.close{
-    display: none;
-}
-
-.tree .branch div.open{
-    display: inline-block;
+ul{
+    width: 100%;
 }

@@ -32,7 +32,7 @@
     export default {
         name: "ZlField",
         props:['field','reqData'],
-        components: {ZlCheckbox, ZlRadio, ZlTextarea, ZlSelect,ZlInput,ZlRadio,ZlDate}
+        components: {ZlCheckbox, ZlRadio, ZlTextarea, ZlSelect,ZlInput,ZlDate}
     }
 </script>
 

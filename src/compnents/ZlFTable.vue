@@ -1,7 +1,7 @@
 <template>
-	<table   v-bind="$attrs" v-on="$listeners">
+	<table class="table table-borderless" v-bind="$attrs" v-on="$listeners">
 		<tr v-for="i in rows">
-			<zl-td :ref="field.name" v-for="(field, index) in fields[i - 1]" :key="index" :field="field" :reqData="reqData"/>
+			<zl-td :column=column :ref="field.name" v-for="(field, index) in fields[i - 1]" :key="index" :field="field" :reqData="reqData"/>
 		</tr>
 		<slot></slot>
 	</table>
@@ -21,7 +21,7 @@
 		},
     watch:{
       fields:{
-        handler: function (o, b){
+        handler: function (o){
           this.fields = o
         },
         deep: true
@@ -45,6 +45,8 @@
 					field.hidden = this.$children[i].hidden
 					field.cstclass = this.$children[i].cstclass
           field.readOnly = this.$children[i].readOnly
+          // debugger
+          field.rules = this.$children[i].rules
           line.push(field)
           n++
 					let field2 ={}
@@ -63,7 +65,6 @@
 		},
     methods:{
     changeReadOnly: function (name, readOnly) {
-      let _this  = this
       this.fields.forEach(field=>{
         field.forEach(f=>{
           if (f.name === name) {

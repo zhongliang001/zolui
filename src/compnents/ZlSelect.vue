@@ -1,11 +1,11 @@
 <template>
     <div>
-        <select :name="field.name"  @change="change" v-model="value">
+        <select class="form-select" :name="field.name"  @change="change" v-model="value">
             <option v-for="opt in options" :value="opt.enName">{{opt.cnName}}</option>
         </select>
-        <template v-if="field.required === 'true'">
+<!--        <template v-if="field.required === 'true'">
             <span style="color: red; ">*</span>
-        </template>
+        </template>-->
         <div :class="{error:isActive}">
             {{msg}}
         </div>

@@ -1,11 +1,11 @@
 <template>
-        <input type="button"  @click="click" :value="name"/>
+        <input :class="customClass" class="btn btn-primary" type="button"  @click="click" :value="name"/>
 </template>
 
 <script>
     export default {
         name: "ZlButton",
-        props:['type','name'],
+        props:['type','name','customClass'],
         data: function(){
             return {
                 formcomp: {}
