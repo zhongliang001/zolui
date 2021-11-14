@@ -31,3 +31,15 @@ build/
 
 ### VS Code ###
 .vscode/
+node_modules/
+### IntelliJ IDEA ###
+.idea/
+*.iws/
+*.iml/
+*.ipr/
+
+.idea/inspectionProfiles/Project_Default.xml
+.idea/modules.xml
+.idea/vcs.xml
+zolui.iml
+package-lock.json
