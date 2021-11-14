@@ -1,5 +1,5 @@
 <template>
-    <div :class="[viewPage !== page? hidden : '']">
+    <div :class="[viewPage !== page? hidden : '']" style="height: 100%">
         <slot/>
     </div>
 </template>
@@ -17,5 +17,4 @@
 </script>
 
 <style scoped>
-
 </style>

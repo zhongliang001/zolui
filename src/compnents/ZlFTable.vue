@@ -53,7 +53,7 @@
 					field2 =  JSON.parse(JSON.stringify(this.$children[i].$props))
           field2.index = n
           line.push(field2)
-					if((i+1) % this.column === 0){
+					if((i+1) % this.column === 0||i+1 ===children.length){
 						i ++
             this.fields.push(line)
 						break

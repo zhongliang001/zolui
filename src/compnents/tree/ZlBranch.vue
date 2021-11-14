@@ -1,23 +1,15 @@
 <template>
-    <div class="branch">
-        <p>
-            <span v-if="level > 0">
-                 <span v-for="index in (level)">
-                &nbsp;&nbsp;&nbsp;
-                </span>
-            </span>
-            <span v-if="branch.children && branch.children.length!= 0">
-                <a :class="[isClose ? 'close': 'open']" @click="expend">{{branch.name}}</a>
-            </span>
-            <span v-else>
-                <a @click="expend">{{branch.name}}</a>
-            </span>
-        </p>
-        <div :class="[isClose ? 'close': 'open']" v-if="branch.children && branch.children.length!= 0">
-            <div v-for="(children, index) in branch.children" :key="index">
-                <zl-branch :branch="children" v-bind:level="Number(level) + 1" :sel="sel"/>
-            </div>
-        </div>
+    <div>
+        <ul :class="'ul-'+ level">
+          <li v-if="branch.children && branch.children.length!== 0"><a><p class="branch-close" aria-expanded="false"  @click="expend">{{branch.name}}</p></a>
+            <ul>
+              <li :id=branch.name v-for="(children, index) in branch.children" :key="index">
+                <zl-branch :branch="children" v-bind:level="Number(level) + 1" :sel="sel"></zl-branch>
+              </li>
+            </ul>
+          </li>
+          <li  v-if="!branch.children || branch.children.length=== 0"><a><p  @click="expend">{{branch.name}}</p></a></li>
+        </ul>
     </div>
 
 </template>
@@ -39,13 +31,23 @@
             }
         },
         methods: {
-            expend: function(){
-                if(this.branch.children.length!= 0){
-                    this.isClose  = !this.isClose
+            expend: function(e){
+              let attr = e.target.getAttribute("aria-expanded");
+              if(attr){
+                if(attr === 'false') {
+                  e.target.setAttribute("aria-expanded", true);
+                }else {
+                  e.target.setAttribute("aria-expanded", false);
                 }
-                this.sel.data = this.branch
-                console.log(this.sel.data)
-                console.log(this.branch)
+                e.target.parentElement.parentElement.querySelectorAll("#" + e.target.innerHTML.trim()).forEach(child => {
+                  if (child.classList.contains("visually-hidden")) {
+                    child.classList.remove("visually-hidden")
+                  } else {
+                    child.classList.add("visually-hidden")
+                  }
+                })
+              }
+              this.sel.data = this.branch
             }
         }
     }
