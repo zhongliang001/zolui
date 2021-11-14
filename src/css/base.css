@@ -133,37 +133,37 @@ div {
 /*    white-space:nowrap;*/
 /*}*/
 
-/*.tree a.close::before{*/
-/*    content: "";*/
-/*    display: inline-block;*/
-/*    width: 20px;*/
-/*    height: 20px;*/
-/*    background: url("../images/folder-close.png");*/
-/*    background-size: contain;*/
-/*    vertical-align: middle;*/
-/*}*/
+.tree a.close::before{
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url("../images/folder-close.png");
+    background-size: contain;
+    vertical-align: middle;
+}
 
-/*.tree a.open::before{*/
-/*    content: "";*/
-/*    display: inline-block;*/
-/*    width: 20px;*/
-/*    height: 20px;*/
-/*    background: url("../images/folder-filling.png");*/
-/*    background-size: contain;*/
-/*    vertical-align: middle;*/
-/*}*/
+.tree a.open::before{
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url("../images/folder-filling.png");
+    background-size: contain;
+    vertical-align: middle;
+}
 
-/*.tree a:hover{*/
-/*    !*background-color: #99CCCC;;*!*/
-/*}*/
+.tree a:hover{
+    background-color: #99CCCC;
+}
 
-/*.tree .branch div.close{*/
-/*    display: none;*/
-/*}*/
+.tree .branch div.close{
+    display: none;
+}
 
-/*.tree .branch div.open{*/
-/*    display: inline-block;*/
-/*}*/
+.tree .branch div.open{
+    display: inline-block;
+}
 
 p {
     font-size: 14px;

@@ -31,6 +31,7 @@ import '@popperjs/core/dist/umd/popper'
 import validator from './lib/validator'
 import 'bootstrap/scss/bootstrap-reboot.scss'
 import './src/scss/zlform.scss'
+import './src/scss/base.scss'
 
 
 
